@@ -1,0 +1,25 @@
+[alias]
+        st = status
+        ci = commit
+        co = checkout
+        br = branch
+        unstage = reset HEAD --
+        last = log -1 HEAD
+        surf = submodule update --recursive --force
+        surr = submodule update --recursive --remote
+        aa = add --all
+        dl = diff HEAD~1 HEAD
+        pullall = "!f() { \
+        initial=$(git symbolic-ref --short HEAD); \
+        for branch in $(git branch | sed 's/\\* //'); do \
+                echo \"Pulling $branch\"; \
+                git checkout $branch && git pull; \
+        done; \
+        git checkout $initial; \
+        }; f"
+
+[core]
+        editor = vim
+        sshCommand = ssh
+[pager]
+        branch = false
